@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="avalon.js"></script>
+
+        <script>
+           /* var vm = avalon.define({
+                $id: "test",
+                aaa: true,
+                bbb: "@@@",
+                ccc: "&&&",
+                active: "active",
+                click: function(){
+                    vm.aaa = !vm.aaa
+                }
+            })*/
+            
+            var vm = avalon.define("test",function(vm){
+                vm.aaa= true;
+                vm.bbb= "@@@";
+                vm.ccc= "&&&";
+                vm.active= "active";
+                vm.click= function(){
+                    vm.aaa = !vm.aaa
+                }
+            })
+           
+  
+        </script>
+        <style>
+            .active {
+                background: goldenrod;
+            }
+            .readonly{
+                border:1px solid blueviolet;
+            }
+        </style>
+
+    </head>
+    <body>
+        <form method="get" action="aaa.html" ms-controller="test">
+        {{aaa}}
+            <input ms-attr-disabled="aaa" name="a1" ms-value="aaa"/>
+            
+            <input ms-class="readonly: aaa" value="readonly"  ms-class-="cls111 cls222 cls333" ms-class-1="cls444 cls555 cls666:aaa"/>
+<br>
+            <input ms-duplex-checked="aaa" type="checkbox" value="checkbox" name="a4" ms-class="cls111 cls222 cls333"/>
+            
+        </form>
+    </body>
+</html>
